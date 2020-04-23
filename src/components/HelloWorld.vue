@@ -58,7 +58,7 @@ export default {
     proper: () => undefined,
 
     toggle () {
-      this.proper({ suffix: ((this.red = !this.red)) ? 'red' : '' })
+      this.proper({ suffix: ((this.red = !this.red)) ? 'dangerous' : '' })
       this.$forceUpdate()     //  Needed, if nothing render-able was changed.
     }
   },

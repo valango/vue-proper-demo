@@ -10,5 +10,5 @@ module.exports = {
   '/cli-plugin-eslint/': {
     href: 'https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint'
   },
-  '/!red$/': { style: 'color: #ff0000' }
+  '/!dangerous$/': { style: 'color: #ff0000' }
 }
