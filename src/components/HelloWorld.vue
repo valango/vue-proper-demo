@@ -58,20 +58,18 @@ export default {
     proper: () => undefined,
 
     toggle () {
-      this.context.suffix = ((this.red = !this.red)) ? 'red' : ''
+      this.proper({ suffix: ((this.red = !this.red)) ? 'red' : '' })
       this.$forceUpdate()     //  Needed, if nothing render-able was changed.
     }
   },
   watch: {
     traceOn (yes) {
-      this.context.debug = yes
-        ? (a, f, k) => console.debug('retrieval-key: %s\nattributes: %o', k, a)
-        : () => undefined
+      this.proper({
+        debug: yes
+          ? (a, f, k) => console.debug('retrievalKey: %s\nattributes: %o', k, a)
+          : () => undefined
+      })
     }
-  },
-  //  Lifecycle hooks
-  created () {
-    this.context = this.proper(null)  //  vue-proper settings for this instance.
   }
 }
 </script>
