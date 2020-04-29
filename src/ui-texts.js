@@ -11,7 +11,7 @@ export default {
     news: { innerHtml: 'Uudised' },
     plugins: { innerHtml: 'Installitud CLI pluginad' },
     trace: {innerHtml: 'Näita trasseeringut<br>debugeri aknas'},
-    try: {innerHtml: 'Proovi, mis ta teeb'},
+    try: {innerHtml: 'Proovi, mis teeb'},
     'For a detailed description of how this works, check out the':
       'Kuidas see kõik töötab, seda selgitab',
     'vue-proper documentation': 'vue-proper\'i dokumentatsioon',

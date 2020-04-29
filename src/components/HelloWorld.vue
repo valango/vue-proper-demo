@@ -70,13 +70,6 @@ export default {
     },
     proper: () => undefined,
 
-    properSave (v, f) {
-      if (this.$p.lang === 'et' && !texts.en[f]) {
-        texts.en[f] = { innerHtml: v }
-      }
-      return true
-    },
-
     toggle () {
       this.proper({ suffix: ((this.red = !this.red)) ? 'dangerous' : '' })
       this.$forceUpdate()     //  Needed, if nothing render-able was changed.
@@ -89,6 +82,7 @@ export default {
           ? (a, f, k) => console.debug('retrievalKey: %s\nattributes: %o', k, a)
           : () => undefined
       })
+      if(!yes) console.debug('SAVED innerHTML:\nen: ', JSON.stringify(texts.en, null, 2))
     }
   }
 }
