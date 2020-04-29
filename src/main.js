@@ -4,7 +4,7 @@ import texts from './ui-texts'
 
 Vue.config.productionTip = false
 
-const proper = require('./ajut/index')
+const proper = require('vue-proper')
 
 Vue.mixin(proper(require('./ui-settings')))
 

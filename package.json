@@ -34,7 +34,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-    "vue-proper": "^0.11.0"
+    "vue-proper": "git://github.com/valango/vue-proper.git"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.3.1",

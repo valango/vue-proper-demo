@@ -1,6 +1,8 @@
 # vue-proper-demo
 
-This is a demo of using [vue-proper package](https://github.com/valango/vue-proper).
+This is a demo of using a _dev branch_ [vue-proper package](https://github.com/valango/vue-proper).
+
+To try the 'official' npm package, check out to `master` branch of this repo.
 
 Clone this repository, then:
 ```
