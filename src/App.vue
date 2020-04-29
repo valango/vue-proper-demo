@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld :msg="$t('Welcome to vue-proper demo App!')"/>
+    <HelloWorld :msg="$p('Welcome to vue-proper demo App!')"/>
   </div>
 </template>
 

@@ -2,29 +2,29 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      {{$t('For a detailed description of how this works, check out the')}}
+      {{$p('For a detailed description of how this works, check out the')}}
       <br />
       <a href="https://github.com/valango/vue-proper/#readme" v-bind="proper()">
-        {{$t('vue-proper documentation')}}</a>.
+        {{$p('vue-proper documentation')}}</a>.
     </p>
-    <h3>{{$t('Installed CLI Plugins')}}</h3>
+    <h3 v-bind="proper('plugins')">Installed CLI Plugins</h3>
     <ul>
       <li><a v-bind="proper('cli-plugin-babel')">babel</a></li>
       <li><a v-bind="proper('cli-plugin-eslint')">eslint</a></li>
     </ul>
-    <h3>{{$t('Essential Links')}}</h3>
+    <h3 v-bind="proper('links')">Essential Links</h3>
     <ul>
-      <li><a href="https://vuejs.org" v-bind="proper()">{{$t('Core Docs')}}</a>
+      <li><a href="https://vuejs.org" v-bind="proper('docs')">Core Docs</a>
       </li>
       <li><a href="https://forum.vuejs.org"
-             v-bind="proper()">{{$t('Forum')}}</a></li>
-      <li><a href="https://chat.vuejs.org" v-bind="proper()">
-        {{$t('Community Chat')}}</a></li>
+             v-bind="proper('forum')">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" v-bind="proper('chat')">
+        Community Chat</a></li>
       <li><a href="https://twitter.com/vuejs" v-bind="proper()">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" v-bind="proper()">{{$t('News')}}</a>
+      <li><a href="https://news.vuejs.org" v-bind="proper('news')">News</a>
       </li>
     </ul>
-    <h3>{{$t('Ecosystem')}}</h3>
+    <h3 v-bind="proper('eco')">Ecosystem</h3>
     <ul>
       <li><a href="https://router.vuejs.org" v-bind="proper()">vue-router</a>
       </li>
@@ -37,14 +37,17 @@
         awesome-vue</a></li>
     </ul>
     <div class="controls">
-      <div>{{$t('Try the magic')}}:</div>
+      <div v-bind="proper('try')">Try the magic:</div>
       <div>
-        <button @click="toggle()" v-text="$t('Emulate status change')" />
-        <button @click="language()" v-text="$t('Eesti (ET)')" />
+        <button @click="toggle()" v-bind="proper('emulate')">Emulate status
+          change
+        </button>
+        <button @click="language()" v-bind="proper('lang')">Eesti (ET)</button>
       </div>
       <div>
         <input type="checkbox" id="trace-on" v-model="traceOn">
-        <label for="trace-on">{{$t('Display trace')}}<br>{{$t('on debug panel')}}</label>
+        <label for="trace-on" v-bind="proper('trace')">
+          Display trace<br>on debug panel</label>
       </div>
     </div>
   </div>
@@ -58,14 +61,21 @@ export default {
     msg: String
   },
   data () {
-    return { lang: 'en', red: false, traceOn: false }
+    return { red: false, traceOn: false }
   },
   methods: {
     language () {
-      this.$t.set(texts[this.lang = this.lang === 'en' ? 'et' : 'en'])
+      this.$p.set(texts[this.$p.lang = this.$p.lang === 'en' ? 'et' : 'en'])
       this.$parent.$forceUpdate()
     },
     proper: () => undefined,
+
+    properSave (v, f) {
+      if (this.$p.lang === 'et' && !texts.en[f]) {
+        texts.en[f] = { innerHtml: v }
+      }
+      return true
+    },
 
     toggle () {
       this.proper({ suffix: ((this.red = !this.red)) ? 'dangerous' : '' })
